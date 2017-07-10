@@ -1,0 +1,7 @@
+galaxy_info:
+  author: Martin Wehner
+  description: Starts an AEM instance on Linux and provides restart handler
+  company: pro!vision
+  issue_tracker_url: https://wcm-io.atlassian.net
+  license: Apache
+  min_ansible_version: 2.0

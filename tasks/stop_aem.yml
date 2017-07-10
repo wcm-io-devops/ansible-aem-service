@@ -1,0 +1,11 @@
+- name: Stop AEM.
+  service:
+    name: "{{ aem_instance_name }}"
+    state: stopped
+
+- name: Wait for AEM shutdown.
+  wait_for:
+    port: "{{ aem_port }}"
+    state: stopped
+    delay: 10
+    timeout: "{{ aem_service_timeout }}"
