@@ -4,8 +4,10 @@
     state: started
 
 - name: Wait for AEM startup.
-  shell: "curl --silent http://localhost:{{ aem_port }}/libs/granite/core/content/login.html"
+  uri:
+    url: "http://localhost:{{ aem_port }}/libs/granite/core/content/login.html"
+    return_content: yes
   register: result
-  until: result.stdout.find("Welcome to Adobe Experience Manager") != -1
+  until: result.content.find("Welcome to Adobe Experience Manager") != -1
   retries: "{{ aem_service_timeout // 10 }}"
   delay: 10
