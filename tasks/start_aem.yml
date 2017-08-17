@@ -3,7 +3,7 @@
     name: "{{ aem_instance_name }}"
     state: started
 
-- name: Wait for AEM startup.
+- name: "Wait for AEM startup. [{{ inventory_hostname }}]"
   uri:
     url: "http://localhost:{{ aem_port }}/libs/granite/core/content/login.html"
     return_content: yes
