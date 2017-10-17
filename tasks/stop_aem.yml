@@ -1,6 +1,6 @@
 - name: Stop AEM.
   service:
-    name: "{{ aem_instance_name }}"
+    name: "{{ aem_service_name }}"
     state: stopped
 
 - name: Wait for AEM shutdown.

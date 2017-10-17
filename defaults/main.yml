@@ -1,3 +1,4 @@
+aem_service_name: "{{ aem_instance_name }}"
 aem_service_state: started
 aem_service_timeout: 1200
 aem_service_login_url: "http://localhost:{{ aem_port }}/libs/granite/core/content/login.html"

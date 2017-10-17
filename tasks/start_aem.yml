@@ -1,6 +1,6 @@
 - name: Start AEM.
   service:
-    name: "{{ aem_instance_name }}"
+    name: "{{ aem_service_name }}"
     state: started
 
 - name: "Wait for AEM startup. [{{ inventory_hostname }}]"
