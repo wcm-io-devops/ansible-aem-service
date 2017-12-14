@@ -9,15 +9,15 @@ This role requires Ansible 2.0 or higher and works with AEM 6.1 or higher. The r
 
 ## Role Variables
 
-These variables are shared with the [aem-cms](https://github.com/wcm-io-devops/ansible-aem-cms) role and are required to be set:
+Available variables are listed below, along with their default values:
 
-	aem_instance_name
+	aem_service_name: 
 
-Name of the AEM service on the target machine.
+Name of the AEM service on the target machine. 
 
-	aem_port
+	aem_service_port:
  
-To be able to poll for completion of the startup and shutdown process the role needs to know the port the AEM instance is listening on.
+To be able to poll for completion of the startup and shutdown process the role needs to know the port the AEM instance is listening on. 
 
 Additionally the following optional variables are available:
 
@@ -42,8 +42,8 @@ Stops the `aem-author` instance and waits for the shutdown to complete:
 	  roles:
 	    - { role: aem-service,
 	        state: stopped,
-	        aem_instance_name: aem-author,
-	        aem_port: 4502 }
+	        aem_service_name: aem-author,
+	        aem_service_port: 4502 }
 
 ## License
 
