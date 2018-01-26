@@ -41,7 +41,7 @@ Stops the `aem-author` instance and waits for the shutdown to complete:
 	- hosts: aem-author
 	  roles:
 	    - { role: aem-service,
-	        state: stopped,
+	        aem_service_state: stopped,
 	        aem_service_name: aem-author,
 	        aem_service_port: 4502 }
 

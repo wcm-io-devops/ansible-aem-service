@@ -2,6 +2,7 @@
   service:
     name: "{{ aem_service_name }}"
     state: started
+  register: aem_service_start_result
 
 - name: "Wait for AEM startup. [{{ inventory_hostname }}]"
   uri:
@@ -11,3 +12,4 @@
   until: result.content.find("QUICKSTART_HOMEPAGE") != -1
   retries: "{{ aem_service_timeout // 10 }}"
   delay: 10
+  when: aem_service_start_result.changed
