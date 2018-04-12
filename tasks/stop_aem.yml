@@ -3,12 +3,3 @@
     name: "{{ aem_service_name }}"
     state: stopped
   register: aem_service_stop_result
-
-- name: Wait for AEM shutdown.
-  wait_for:
-    port: "{{ aem_service_port }}"
-    state: stopped
-    delay: 5
-    timeout: "{{ aem_service_timeout }}"
-  register: aem_service_stop_result
-  when: aem_service_stop_result.changed
