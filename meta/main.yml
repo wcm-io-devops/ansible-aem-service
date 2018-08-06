@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: aem_service
   author: Martin Wehner
   description: Controls AEM service on Linux
   company: pro!vision
