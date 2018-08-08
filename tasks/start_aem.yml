@@ -13,3 +13,5 @@
   retries: "{{ aem_service_timeout // 10 }}"
   delay: 10
   when: aem_service_start_result.changed
+  tags:
+    - skip_ansible_lint
