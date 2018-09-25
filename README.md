@@ -1,7 +1,12 @@
 # wcm_io_devops.aem_service
 
 This role controls an Adobe Experience Manager (AEM) 6.x service on Linux servers and waits until the startup and shutdown is complete. It also provides a handler to only restart the instance as required from other roles/playbooks.
-> This role was developed as part of the wcm.io set of roles to integrate Ansible with [CONGA](http://devops.wcm.io/conga/) and is designed to be used in combination with the [wcm_io_devops.aem_cms](https://github.com/wcm-io-devops/ansible-aem-cms) role (but can be used independently).
+
+> This role was developed as part of the
+> [wcm.io DevOps Ansible Automation for AEM](http://devops.wcm.io/ansible-aem/)
+> to integrate Ansible with
+> [CONGA](http://devops.wcm.io/conga/) but can be used independently of
+> it.
 
 ## Requirements
 
