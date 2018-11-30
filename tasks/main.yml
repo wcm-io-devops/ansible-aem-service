@@ -1,8 +1,8 @@
-- include: start_aem.yml
+- include_tasks: start_aem.yml
   when: aem_service_state == 'started'
 
-- include: stop_aem.yml
+- include_tasks: stop_aem.yml
   when: aem_service_state == 'stopped'
 
-- include: restart_aem.yml
+- include_tasks: restart_aem.yml
   when: aem_service_state == 'restarted'

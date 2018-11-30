@@ -1,2 +1,2 @@
 - name: restart aem
-  include: restart_aem.yml
+  include_tasks: restart_aem.yml
