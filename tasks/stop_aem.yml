@@ -1,5 +1,8 @@
-- name: Stop AEM.
-  service:
-    name: "{{ aem_service_name }}"
-    state: stopped
-  register: aem_service_stop_result
+#- name: Stop AEM.
+#  service:
+#    name: "{{ aem_service_name }}"
+#    state: stopped
+#  register: aem_service_stop_result
+
+- name: Stop AEM (with raw command line).
+  command: {{ aem_service_raw_cmd_stop }}
