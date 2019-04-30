@@ -5,7 +5,8 @@
 #  register: aem_service_start_result
 
 - name: Start AEM (with raw command line).
-  command: {{ aem_service_raw_cmd_start }}
+  command: "{{ aem_service_raw_cmd_start }}"
+  register: aem_service_start_result
 
 - name: "Wait for AEM startup. [{{ inventory_hostname }}]"
   uri:
