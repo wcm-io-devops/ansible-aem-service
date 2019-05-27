@@ -35,11 +35,11 @@ When using  `aem_service_raw_cmd_start` or `aem_service_raw_cmd_stop`, idempoten
 
 The time to wait for the startup or shutdown to finish (in seconds).
 
-   aem_service_raw_cmd_start
+    aem_service_raw_cmd_start
 
 Optional start command line to use instead of the ansible service module.
 
-   aem_service_raw_cmd_stop
+    aem_service_raw_cmd_stop
 
 Optional stop command line to use instead of the ansible service module.
 
