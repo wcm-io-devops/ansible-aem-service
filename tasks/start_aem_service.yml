@@ -1,0 +1,8 @@
+- name: Start AEM.
+  service:
+    name: "{{ aem_service_name }}"
+    state: started
+  register: aem_service_start_result
+
+- include_tasks: wait_aem_startup.yml
+  when: aem_service_start_result.changed

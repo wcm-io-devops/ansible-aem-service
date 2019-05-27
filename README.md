@@ -28,11 +28,20 @@ Additionally the following optional variables are available:
 
 	aem_service_state: started
 
-The desired state of the service after this role finishes, one of `started`, `stopped` or `restarted`. `started` and `stopped` are idempotent and will not change the state unless necessary while `restarted` will always restart the service. 
+The desired state of the service after this role finishes, one of `started`, `stopped` or `restarted`. `started` and `stopped` are idempotent and will not change the state unless necessary while `restarted` will always restart the service.
+When using  `aem_service_raw_cmd_start` or `aem_service_raw_cmd_stop`, idempotency depends on the behaviour of the command line executed.
 
 	aem_service_timeout: 1200
 
 The time to wait for the startup or shutdown to finish (in seconds).
+
+   aem_service_raw_cmd_start
+
+Optional start command line to use instead of the ansible service module.
+
+   aem_service_raw_cmd_stop
+
+Optional stop command line to use instead of the ansible service module.
 
 
 ## Dependencies
@@ -49,6 +58,16 @@ Stops the `aem-author` instance and waits for the shutdown to complete:
 	        aem_service_state: stopped,
 	        aem_service_name: aem-author,
 	        aem_service_port: 4502 }
+
+Stops the `aem-author` instance using a custom raw command line and waits for the restart to complete:
+
+	- hosts: aem-author
+	  roles:
+	    - { role: wcm_io_devops.aem_service,
+	        aem_service_state: restarted,
+	        aem_service_port: 4502,
+	        aem_service_raw_cmd_stop: sudo systemctl stop aem-author,
+	        aem_service_raw_cmd_start: sudo systemctl start aem-author }
 
 ## License
 

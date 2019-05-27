@@ -1,0 +1,6 @@
+- name: Start AEM (with raw command line).
+  command: "{{ aem_service_raw_cmd_start }}"
+  register: aem_service_start_result
+
+- include_tasks: wait_aem_startup.yml
+  when: aem_service_start_result.changed

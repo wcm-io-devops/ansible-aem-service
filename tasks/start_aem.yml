@@ -1,23 +1,5 @@
-- name: Start AEM.
-  service:
-    name: "{{ aem_service_name }}"
-    state: started
+- include_tasks: start_aem_service.yml
   when: aem_service_raw_cmd_start is undefined
-  register: aem_service_start_result
 
-- name: Start AEM (with raw command line).
-  command: "{{ aem_service_raw_cmd_start }}"
+- include_tasks: start_aem_raw.yml
   when: aem_service_raw_cmd_start is defined
-  register: aem_service_start_result
-
-- name: "Wait for AEM startup. [{{ inventory_hostname }}]"
-  uri:
-    url: "{{ aem_service_login_url }}"
-    return_content: yes
-  register: result
-  until: result.content.find("QUICKSTART_HOMEPAGE") != -1
-  retries: "{{ aem_service_timeout // 10 }}"
-  delay: 10
-  when: aem_service_start_result.changed
-  tags:
-    - skip_ansible_lint

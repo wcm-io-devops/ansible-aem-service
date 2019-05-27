@@ -1,0 +1,3 @@
+- name: Stop AEM (with raw command line).
+  command: "{{ aem_service_raw_cmd_stop }}"
+  register: aem_service_stop_result
