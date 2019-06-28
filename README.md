@@ -34,6 +34,21 @@ The desired state of the service after this role finishes, one of `started`, `st
 
 The time to wait for the startup or shutdown to finish (in seconds).
 
+aem_service_restricted_mode: false
+
+Enables / disables the restricted mode to work with customized commands like `sudo`.
+
+    # aem_service_start_command: 
+
+Overwrites the default (service manager related) start command.
+
+    # aem_service_stop_command: 
+
+Overwrites the default (service manager related) stop command.
+
+    # aem_service_status_command: 
+
+Overwrites the default (service manager related) status command.
 
 ## Dependencies
 

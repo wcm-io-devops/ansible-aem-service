@@ -1,5 +1,28 @@
-- name: Stop AEM.
+- name: Stop AEM (escalated).
   service:
     name: "{{ aem_service_name }}"
     state: stopped
   register: aem_service_stop_result
+  when: not aem_service_restricted_mode
+
+- name: Stop AEM (restricted).
+  block:
+    - name: Retrieve AEM status (restricted).
+      raw: "{{ _aem_service_status_command }}"
+      changed_when: false
+      failed_when:
+        - _aem_status_result.rc != 0
+        - _aem_status_result.rc != 4
+      register: _aem_status_result
+
+    - name: Stop AEM (restricted).
+      raw: "{{ _aem_service_stop_command }}"
+      when: _aem_status_result.rc == 0
+      register: _aem_stop_result
+
+    - debug:
+        msg:
+          - "_aem_stop_result"
+          - "{{ _aem_stop_result | default('not found') }}"
+
+  when: aem_service_restricted_mode
