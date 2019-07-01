@@ -50,6 +50,20 @@ Overwrites the default (service manager related) stop command.
 
 Overwrites the default (service manager related) status command.
 
+    # aem_service_status_stopped_status_codes:
+
+Overwrites the default (service manager related) stopped status codes
+when set.
+
+    # aem_service_status_started_status_codes:
+
+Overwrites the default (service manager related) started status codes
+when set.
+
+aem_service_status_valid_status_codes: "{{ _aem_service_status_stopped_status_codes | union(_aem_service_status_started_status_codes) | unique }}"
+
+# List of all valid AEM status codes.
+
 ## Dependencies
 
 This role has no hard dependencies but interacts heavily with the [wcm_io_devops.aem_cms](https://github.com/wcm-io-devops/ansible-aem-cms) role.

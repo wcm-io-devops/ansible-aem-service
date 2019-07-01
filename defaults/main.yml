@@ -13,10 +13,19 @@ aem_service_login_url: "http://localhost:{{ aem_service_port }}/libs/granite/cor
 aem_service_restricted_mode: false
 
 # Overwrites the default (service manager related) start command
-# aem_service_start_command
+# aem_service_start_command:
 
 # Overwrites the default (service manager related) stop command
-# aem_service_stop_command
+# aem_service_stop_command:
 
 # Overwrites the default (service manager related) status command
-# aem_service_status_command
+# aem_service_status_command:
+
+# Overwrites the default (service manager related) stopped status codes
+# aem_service_status_stopped_status_codes:
+
+# Overwrites the default (service manager related) started status codes
+# aem_service_status_started_status_codes:
+
+# List of all valid AEM status codes.
+aem_service_status_valid_status_codes: "{{ _aem_service_status_stopped_status_codes | union(_aem_service_status_started_status_codes) | unique }}"

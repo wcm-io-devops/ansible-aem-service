@@ -11,9 +11,7 @@
       raw: "{{ _aem_service_status_command }}"
       changed_when: false
       register: _aem_status_result_1
-      failed_when:
-        - _aem_status_result_1.rc != 0
-        - _aem_status_result_1.rc != 4
+      failed_when: _aem_status_result_1.rc not in aem_service_status_valid_status_codes
 
     - name: Start AEM (restricted).
       raw: "{{ _aem_service_start_command }}"
