@@ -10,7 +10,9 @@ This role controls an Adobe Experience Manager (AEM) 6.x service on Linux server
 
 ## Requirements
 
-This role requires Ansible 2.0 or higher and works with AEM 6.1 or higher. The role requires an AEM service that can be controlled with the Ansible `service` module to be installed on the target machine.
+This role requires Ansible 2.4 or higher and works with AEM 6.1 or
+higher. The role requires an AEM service that can be controlled with the
+Ansible `service` module to be installed on the target machine.
 
 ## Role Variables
 
