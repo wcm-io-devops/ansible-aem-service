@@ -28,3 +28,5 @@
     sleep: 10
     timeout: "{{ aem_service_timeout }}"
   when: aem_service_stop_result_escalated.changed or aem_service_stop_result_restricted.changed
+  tags:
+    - skip_ansible_lint
