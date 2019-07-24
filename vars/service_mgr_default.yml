@@ -1,5 +1,5 @@
-_aem_service_start_command: "{{ aem_service_start_command | default('sudo /etc/init.d/'+aem_service_name+' start') }}"
-_aem_service_stop_command: "{{ aem_service_stop_command | default('sudo /etc/init.d/'+aem_service_name+' stop') }}"
-_aem_service_status_command: "{{ aem_service_status_command | default('sudo /etc/init.d/'+aem_service_name+' status') }}"
+_aem_service_start_command: "{{ aem_service_start_command | default('sudo -n /etc/init.d/'+aem_service_name+' start') }}"
+_aem_service_stop_command: "{{ aem_service_stop_command | default('sudo -n /etc/init.d/'+aem_service_name+' stop') }}"
+_aem_service_status_command: "{{ aem_service_status_command | default('sudo -n /etc/init.d/'+aem_service_name+' status') }}"
 _aem_service_status_stopped_status_codes: "{{ aem_service_status_stopped_status_codes | default([4]) }}"
 _aem_service_status_started_status_codes: "{{ aem_service_status_started_status_codes | default([0]) }}"
