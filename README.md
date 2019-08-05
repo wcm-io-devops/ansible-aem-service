@@ -10,7 +10,9 @@ This role controls an Adobe Experience Manager (AEM) 6.x service on Linux server
 
 ## Requirements
 
-This role requires Ansible 2.0 or higher and works with AEM 6.1 or higher. The role requires an AEM service that can be controlled with the Ansible `service` module to be installed on the target machine.
+This role requires Ansible 2.4 or higher and works with AEM 6.1 or
+higher. The role requires an AEM service that can be controlled with the
+Ansible `service` module to be installed on the target machine.
 
 ## Role Variables
 
@@ -34,6 +36,35 @@ The desired state of the service after this role finishes, one of `started`, `st
 
 The time to wait for the startup or shutdown to finish (in seconds).
 
+aem_service_restricted_mode: false
+
+Enables / disables the restricted mode to work with customized commands like `sudo`.
+
+    # aem_service_start_command: 
+
+Overwrites the default (service manager related) start command.
+
+    # aem_service_stop_command: 
+
+Overwrites the default (service manager related) stop command.
+
+    # aem_service_status_command: 
+
+Overwrites the default (service manager related) status command.
+
+    # aem_service_status_stopped_status_codes:
+
+Overwrites the default (service manager related) stopped status codes
+when set.
+
+    # aem_service_status_started_status_codes:
+
+Overwrites the default (service manager related) started status codes
+when set.
+
+aem_service_status_valid_status_codes: "{{ _aem_service_status_stopped_status_codes | union(_aem_service_status_started_status_codes) | unique }}"
+
+# List of all valid AEM status codes.
 
 ## Dependencies
 

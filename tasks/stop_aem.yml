@@ -1,5 +1,32 @@
-- name: Stop AEM.
+- name: Stop AEM (escalated).
   service:
     name: "{{ aem_service_name }}"
     state: stopped
-  register: aem_service_stop_result
+  register: aem_service_stop_result_escalated
+  when: not aem_service_restricted_mode
+
+- name: Stop AEM (restricted).
+  block:
+    - name: Retrieve AEM status (restricted).
+      raw: "{{ _aem_service_status_command }}"
+      changed_when: false
+      failed_when: _aem_status_result.rc not in aem_service_status_valid_status_codes
+      register: _aem_status_result
+
+    - name: Stop AEM (restricted).
+      raw: "{{ _aem_service_stop_command }}"
+      when: _aem_status_result.rc == 0
+      register: aem_service_stop_result_restricted
+
+  when: aem_service_restricted_mode
+
+- name: Wait for AEM shutdown.
+  wait_for:
+    port: "{{ aem_service_port }}"
+    state: stopped
+    delay: 0
+    sleep: 10
+    timeout: "{{ aem_service_timeout }}"
+  when: aem_service_stop_result_escalated.changed or aem_service_stop_result_restricted.changed
+  tags:
+    - skip_ansible_lint

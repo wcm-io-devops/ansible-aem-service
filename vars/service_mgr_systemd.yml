@@ -1,0 +1,5 @@
+_aem_service_start_command: "{{ aem_service_start_command | default('sudo -n /bin/systemctl start '+aem_service_name ) }} && echo $?"
+_aem_service_stop_command: "{{ aem_service_stop_command | default('sudo -n /bin/systemctl stop '+aem_service_name ) }} && echo $?"
+_aem_service_status_command: "{{ aem_service_status_command | default('sudo -n /bin/systemctl is-active '+aem_service_name) }}"
+_aem_service_status_stopped_status_codes: "{{ aem_service_status_stopped_status_codes | default([3]) }}"
+_aem_service_status_started_status_codes: "{{ aem_service_status_started_status_codes | default([0]) }}"
