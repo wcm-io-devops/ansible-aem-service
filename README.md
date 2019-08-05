@@ -62,7 +62,9 @@ when set.
 Overwrites the default (service manager related) started status codes
 when set.
 
-aem_service_status_valid_status_codes: "{{ _aem_service_status_stopped_status_codes | union(_aem_service_status_started_status_codes) | unique }}"
+    aem_service_status_valid_status_codes: "{{ _aem_service_status_stopped_status_codes | union(_aem_service_status_started_status_codes) | unique }}"
+    
+List of all valid AEM status codes.
 
 # List of all valid AEM status codes.
 
