@@ -66,8 +66,6 @@ when set.
     
 List of all valid AEM status codes.
 
-# List of all valid AEM status codes.
-
 ## Dependencies
 
 This role has no hard dependencies but interacts heavily with the [wcm_io_devops.aem_cms](https://github.com/wcm-io-devops/ansible-aem-cms) role.
