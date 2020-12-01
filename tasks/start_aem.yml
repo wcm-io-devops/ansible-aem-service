@@ -28,6 +28,5 @@
   until: result.content.find("QUICKSTART_HOMEPAGE") != -1
   retries: "{{ aem_service_timeout // 10 }}"
   delay: 10
-  when: aem_service_start_result_escalated.changed or aem_service_start_result_restricted.changed
   tags:
     - skip_ansible_lint
