@@ -20,13 +20,12 @@
 
   when: aem_service_restricted_mode
 
-- name: Wait for AEM shutdown.
+- name: "Wait for AEM shutdown. [{{ inventory_hostname }}]"
   wait_for:
     port: "{{ aem_service_port }}"
     state: stopped
     delay: 0
     sleep: 10
     timeout: "{{ aem_service_timeout }}"
-  when: aem_service_stop_result_escalated.changed or aem_service_stop_result_restricted.changed
   tags:
     - skip_ansible_lint

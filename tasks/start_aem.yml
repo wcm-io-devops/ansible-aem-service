@@ -20,7 +20,7 @@
 
   when: aem_service_restricted_mode
 
-- name: "Wait for AEM startup."
+- name: "Wait for AEM startup. [{{ inventory_hostname }}]"
   uri:
     url: "{{ aem_service_login_url }}"
     return_content: yes
