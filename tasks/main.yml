@@ -1,3 +1,10 @@
+- name: Ensure that required variables are defined.
+  assert:
+    that:
+      - aem_service_name is defined
+      - aem_service_port is defined
+    fail_msg: "'aem_service_name' and 'aem_service_port' must be defined"
+
 - name: Include service manager specific variables.
   include_vars: "{{ item }}"
   with_first_found:
