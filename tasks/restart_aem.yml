@@ -1,2 +1,3 @@
+---
 - include_tasks: stop_aem.yml
 - include_tasks: start_aem.yml

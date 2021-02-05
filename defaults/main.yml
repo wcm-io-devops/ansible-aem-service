@@ -1,3 +1,4 @@
+---
 # Name of the AEM service
 # aem_service_name: "{{ aem_cms_service_name }}"
 # Port of the AEM instance (used for building the service URL below and polling during shutdown)
