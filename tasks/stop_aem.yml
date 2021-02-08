@@ -1,3 +1,4 @@
+---
 - name: Stop AEM (escalated).
   service:
     name: "{{ aem_service_name }}"
