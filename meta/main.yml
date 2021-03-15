@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   role_name: aem_service
+  namespace: wcm_io_devops
   author: Martin Wehner
   description: Controls AEM service on Linux
   company: pro!vision
